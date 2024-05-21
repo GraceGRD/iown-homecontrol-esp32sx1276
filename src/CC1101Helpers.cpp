@@ -94,9 +94,10 @@ namespace Radio
 
         delay(150);
         SPIsendCommand(CMD_IDLE);
-
+#ifdef SCAN_LED
         pinMode(SCAN_LED, OUTPUT);
         digitalWrite(SCAN_LED, 1);
+#endif
 
     }
 

@@ -16,12 +16,13 @@
 #define RADIO_MOSI_PIN      27 
 #define RADIO_CS_PIN        18 
 #define RADIO_DIO0_PIN      26 
-#define RADIO_RST_PIN       14
 #define BOARD_LED_PIN       25 
-#ifdef LILYGO
+#if defined(LILYGO)
 #define RADIO_DIO1_PIN      33 //LILYGO
 #define RADIO_DIO2_PIN      32 //LILYGO
+#define RADIO_RST_PIN       23 
 #elif defined(HELTEC)
+#define RADIO_RST_PIN       14 
 #define RADIO_DIO1_PIN      35 //HELTEC
 #define RADIO_DIO2_PIN      34 //HELTEC
 #define RADIO_BUSY_PIN      32
@@ -98,9 +99,11 @@
 #define MAX_FREQS                1       // Number of Frequencies to scan through Fast Hopping set to 1 to disable FHSS
 
 #if defined(ESP8266)
-    #define SCAN_LED                                D0
+    #define SCAN_LED                  D0
 #elif defined(HELTEC)
-    #define SCAN_LED                  BOARD_LED_PIN //              22
+    #define SCAN_LED                  BOARD_LED_PIN //  22
+#elif defined(LILYGO)
+    #define SCAN_LED                  BOARD_LED_PIN
 #endif
 #define RX_LED                        SCAN_LED
 

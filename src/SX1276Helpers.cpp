@@ -85,9 +85,10 @@ namespace Radio {
         // SPI.endTransaction();
 
         writeByte(REG_OPMODE, RF_OPMODE_STANDBY); // Put Radio in Standby mode
-
+#ifdef SCAN_LED
         pinMode(SCAN_LED, OUTPUT);
         digitalWrite(SCAN_LED, 1);
+#endif
         printf("\nRadio Chip is ready\n");
     }
 
